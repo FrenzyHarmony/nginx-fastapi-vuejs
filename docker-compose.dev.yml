@@ -1,0 +1,21 @@
+version: '3.5'
+services:
+    nginx-proxy:
+        volumes:
+            - $PWD/nginx/dev.conf:/etc/nginx/conf.d/default.conf
+
+    frontend:
+        image: vue_frontend_dev
+        volumes:
+            - ./frontend:/frontend
+        build:
+            target: 'develop-stage'
+        ports:
+            - 8080:8080
+        command: /bin/sh -c "npm run serve"
+
+    backend:
+        volumes:
+            - ./backend:/backend
+        ports:
+            - 8081:5000

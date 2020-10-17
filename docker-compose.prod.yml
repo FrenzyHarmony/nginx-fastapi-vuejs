@@ -1,0 +1,16 @@
+version: '3.5'
+services:
+    frontend:
+        image: vue_frontend_prod
+        volumes:
+            - $PWD/frontend:/frontend
+        build:
+            target: 'production-stage'
+
+    backend:
+        volumes:
+            - ./backend:/backend
+
+    nginx-proxy:
+        volumes:
+            - $PWD/nginx/prod.conf:/etc/nginx/conf.d/default.conf
