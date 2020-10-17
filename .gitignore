@@ -2,4 +2,3 @@ __pycache__
 app.egg-info
 .vscode/
 .DS_Store
-.env
