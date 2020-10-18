@@ -8,6 +8,7 @@ services:
         image: vue_frontend_dev
         volumes:
             - ./frontend:/frontend
+            - /frontend/node_modules
         build:
             target: 'develop-stage'
         ports:
